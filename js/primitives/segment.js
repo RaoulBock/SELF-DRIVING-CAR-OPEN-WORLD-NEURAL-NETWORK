@@ -4,6 +4,13 @@ class Segment {
     this.p2 = p2;
   }
 
+  equals(seg) {
+    return (
+      (this.p1.equals(seg.p1) && this.p2.equals(seg.p2)) ||
+      (this.p1.equals(seg.p2) && this.p2.equals(seg.p1))
+    );
+  }
+
   draw(ctx, width = 2, color = "black") {
     ctx.beginPath();
     ctx.lineWidth = width;
