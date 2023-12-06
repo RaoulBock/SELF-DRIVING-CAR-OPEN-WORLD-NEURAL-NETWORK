@@ -98,8 +98,10 @@
       function animate() {
         ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
         ctx.save();
+        ctx.translate(viewport.center.x, viewport.center.y);
         ctx.scale(1 / viewport.zoom, 1 / viewport.zoom);
-        ctx.translate(viewport.offset.x, viewport.offset.y);
+        const offset = viewport.getOffset();
+        ctx.translate(offset.x, offset.y);
         graphEditor.display();
         ctx.restore();
         requestAnimationFrame(animate);
