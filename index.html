@@ -99,6 +99,7 @@
         ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
         ctx.save();
         ctx.scale(1 / viewport.zoom, 1 / viewport.zoom);
+        ctx.translate(viewport.offset.x, viewport.offset.y);
         graphEditor.display();
         ctx.restore();
         requestAnimationFrame(animate);
