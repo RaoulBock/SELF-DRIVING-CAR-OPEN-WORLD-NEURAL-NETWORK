@@ -15,6 +15,8 @@
       <button onclick="removeRandomSegment()">Remove Segment</button>
       <button onclick="removeRandomPoint()">Remove Points</button>
       <button onclick="removeAll()">Remove All</button> -->
+      <button onclick="dispose()">🗑️</button>
+      <button onclick="save()">💾</button>
     </div>
 
     <script src="js/graphEditor.js"></script>
@@ -96,14 +98,8 @@
 
       animate();
       function animate() {
-        ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-        ctx.save();
-        ctx.translate(viewport.center.x, viewport.center.y);
-        ctx.scale(1 / viewport.zoom, 1 / viewport.zoom);
-        const offset = viewport.getOffset();
-        ctx.translate(offset.x, offset.y);
+        viewport.reset();
         graphEditor.display();
-        ctx.restore();
         requestAnimationFrame(animate);
       }
       //   graph.draw(ctx);
