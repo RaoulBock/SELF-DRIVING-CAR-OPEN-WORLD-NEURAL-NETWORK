@@ -4,6 +4,20 @@ class Graph {
     this.segments = segments;
   }
 
+  static load(info) {
+    const points = [];
+    const segments = [];
+
+    for (const pointInfo of info.points) {
+      points.push(new Point(pointInfo.x, pointInfo.y));
+    }
+
+    for (const segInfo of info.segments) {
+      segments.push(new Segment(segInfo.p1, segInfo.p2));
+    }
+    return new Graph(points, segments);
+  }
+
   addPoint(point) {
     this.points.push(point);
   }
