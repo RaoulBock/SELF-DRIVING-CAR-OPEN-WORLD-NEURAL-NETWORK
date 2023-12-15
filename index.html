@@ -102,6 +102,15 @@
         graphEditor.display();
         requestAnimationFrame(animate);
       }
+
+      function dispose() {
+        graphEditor.dispose();
+      }
+
+      function save() {
+        localStorage.setItem("graph", JSON.stringify(graph));
+      }
+
       //   graph.draw(ctx);
     </script>
   </body>
