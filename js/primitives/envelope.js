@@ -16,7 +16,7 @@ class Envelope {
     // const p1_cw = translate(p1, alpha_cw, radius);
     const points = [];
     const step = Math.PI / Math.max(1, roundness);
-    const eps = step / 2
+    const eps = step / 2;
     for (let i = alpha_ccw; i <= alpha_cw + eps; i += step) {
       points.push(translate(p1, i, radius));
     }

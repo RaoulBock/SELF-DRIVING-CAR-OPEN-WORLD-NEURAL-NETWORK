@@ -5,6 +5,7 @@ class World {
     this.roadRoundness = roadRoundness;
 
     this.envelopes = [];
+    this.roadBoarders = [];
     this.generate();
   }
   generate() {
@@ -15,15 +16,16 @@ class World {
       );
     }
 
-    this.intersections = Polygon.break(
-      this.envelopes[0].poly,
-      this.envelopes[1].poly
-    );
+    this.roadBoarders = Polygon.union(this.envelopes.map((e) => e.poly));
   }
 
   draw(ctx) {
     for (const env of this.envelopes) {
       env.draw(ctx);
+    }
+
+    for (const seg of this.roadBoarders) {
+      seg.draw(ctx, { color: "white", width: 4 });
     }
   }
 }
