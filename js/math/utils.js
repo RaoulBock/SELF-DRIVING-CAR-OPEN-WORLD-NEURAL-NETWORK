@@ -31,6 +31,14 @@ function scale(p, scaler) {
   return new Point(p.x * scaler, p.y * scaler);
 }
 
+function normalize(p) {
+  return scale(p, 1 / magnitude(p));
+}
+
+function magnitude(p) {
+  return Math.hypot(p.x, p.y);
+}
+
 function translate(loc, angle, offset) {
   return new Point(
     loc.x + Math.cos(angle) * offset,

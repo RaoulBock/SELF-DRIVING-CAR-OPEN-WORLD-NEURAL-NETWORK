@@ -4,6 +4,14 @@ class Segment {
     this.p2 = p2;
   }
 
+  length() {
+    return distance(this.p1, this.p2);
+  }
+
+  directionVector() {
+    return normalize(subtract(this.p2, this.p1));
+  }
+
   equals(seg) {
     return this.includes(seg.p1) && this.includes(seg.p2);
   }
